@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+body {
+  @apply font-sans bg-slate-50 text-slate-800 dark:bg-black dark:text-neutral-200 transition-colors duration-300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: "Inter", "sans-serif";
+}
+
+/* Add a subtle scrollbar style */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-[#0a0a0a];
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-neutral-800 rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-neutral-600;
+}
+
+.prose a {
+  color: #2563eb; /* Corresponds to Tailwind's text-blue-600 */
+  text-decoration: underline;
+  font-weight: 500; /* Corresponds to font-medium */
+  transition: color 0.2s ease-in-out;
+}
+
+.prose a:hover {
+  color: #1d4ed8; /* Corresponds to Tailwind's text-blue-800 */
+}
+
+.project-description ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+}
+
+.project-description ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+}
+
+.project-description li {
+  margin-bottom: 0.5rem;
+}
+
+.project-description p:empty {
+  min-height: 1rem;
+}
+
+/* Chrome Autofill Overrides */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover, 
+textarea:-webkit-autofill:focus, 
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #f8fafc inset !important; /* bg-slate-50 */
+  -webkit-text-fill-color: #0f172a !important; /* text-slate-900 */
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Dark Mode Chrome Autofill Overrides */
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover, 
+.dark input:-webkit-autofill:focus, 
+.dark input:-webkit-autofill:active,
+.dark textarea:-webkit-autofill,
+.dark textarea:-webkit-autofill:hover, 
+.dark textarea:-webkit-autofill:focus, 
+.dark textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #000000 inset !important; /* bg-black */
+  -webkit-text-fill-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
