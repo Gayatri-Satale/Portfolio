@@ -1,14 +1,5 @@
 import { useEffect, useState } from "react";
-import { getTerms } from "../services/termsService";
-
-// Local interface (optional, only for TS type checking)
-interface TermAndCondition {
-  id: string;
-  title: string;
-  content: string;
-  imagePath?: string | null;
-  order: number;
-}
+import { getTerms, TermAndCondition } from "../services/termsService";
 
 export default function Terms() {
   const [terms, setTerms] = useState<TermAndCondition[]>([]);

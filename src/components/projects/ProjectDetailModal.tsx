@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import { FiX, FiGithub, FiExternalLink, FiTag, FiUsers, FiCalendar } from 'react-icons/fi';
+import { FiX, FiExternalLink, FiTag, FiUsers, FiCalendar } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
 
 // Local Type Definitions

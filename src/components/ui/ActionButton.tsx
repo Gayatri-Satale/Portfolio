@@ -6,7 +6,7 @@ interface ActionButtonProps {
   variant?: 'primary' | 'outline';
   children: ReactNode;
   isExternal?: boolean;
-  onClick?: () => void;
+  onClick?: (e?: any) => void;
   className?: string;
 }
 

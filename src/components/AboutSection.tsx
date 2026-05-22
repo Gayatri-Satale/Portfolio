@@ -140,7 +140,6 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ about, links }: AboutSectionProps) {
-  const [roleIndex, setRoleIndex] = useState(0);
   const [currentRole, setCurrentRole] = useState('');
 
   useEffect(() => {
@@ -148,7 +147,7 @@ export default function AboutSection({ about, links }: AboutSectionProps) {
 
     let currentText = '';
     let isDeleting = false;
-    let localRoleIndex = roleIndex;
+    let localRoleIndex = 0;
 
     const type = () => {
       const fullText = about.roles[localRoleIndex];
@@ -205,7 +204,7 @@ export default function AboutSection({ about, links }: AboutSectionProps) {
             </div>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <ActionButton href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
+              <ActionButton href="#contact" onClick={(e: any) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}>
                 <FiMail className="mr-2" /> Get In Touch
               </ActionButton>
               {about.cv && (
