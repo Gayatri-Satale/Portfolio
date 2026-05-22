@@ -4,7 +4,6 @@ import SkillsSection from '../components/SkillsSection';
 import JourneySection from '../components/JourneySection';
 import FeaturedProjectsSection from '../components/FeaturedProjectsSection';
 import ContactSection from '../components/ContactSection';
-import Terms from "../components/terms";
 
 import { getAboutData, type AboutData } from '../services/aboutService';
 import { getLinks, type SocialLink } from '../services/linksService';

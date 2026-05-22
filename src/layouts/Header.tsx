@@ -83,6 +83,11 @@ export default function Header() {
     { id: 'journey', label: 'Journey' },
   ];
 
+  const linksObj: { [key: string]: string } = {};
+  links?.forEach(l => {
+    linksObj[l.type] = l.url;
+  });
+
   return (
     <>
       <motion.header
@@ -110,7 +115,7 @@ export default function Header() {
               {isDarkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
             </button>
             <div className="hidden md:block">
-              <ActionButton href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>
+              <ActionButton href="#contact" onClick={(e: any) => { e.preventDefault(); scrollToSection('contact'); }}>
                 Contact Me
               </ActionButton>
             </div>
@@ -120,7 +125,7 @@ export default function Header() {
           </div>
         </nav>
       </motion.header>
-      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} scrollToSection={scrollToSection} links={links} />
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} scrollToSection={scrollToSection} links={linksObj} />
     </>
   );
 }

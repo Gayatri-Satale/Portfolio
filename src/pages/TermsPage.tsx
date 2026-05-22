@@ -3,10 +3,8 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { getTerms } from '../services/termsService';
 import Loader from '../components/ui/Loader';
-import { FiAlertTriangle } from 'react-icons/fi';
 import ReactMarkdown from 'react-markdown';
 import SectionHeader from '../components/ui/SectionHeader';
-import { Link } from 'react-router-dom';
 import ScrollToTop from '../components/ui/ScrollToTop';
 
 // Local Type Definition

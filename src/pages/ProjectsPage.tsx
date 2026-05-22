@@ -1,17 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiPackage, FiSearch, FiHome } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { FiPackage, FiSearch } from 'react-icons/fi';
 
 import Pagination from '../components/ui/Pagination';
 import ProjectCard from '../components/projects/ProjectCard';
-import { getProjects, getProjectCategories } from '../services/projectService';
+import { getProjects, getProjectCategories, Project } from '../services/projectService';
 import Loader from '../components/ui/Loader';
 import ScrollToTop from '../components/ui/ScrollToTop';
 import SectionHeader from '../components/ui/SectionHeader';
 
-interface Project { id: string; name: string; projectImage: string | null; startDate: string; endDate?: string | null; githubLink?: string | null; liveLink?: string | null; tags: string[]; category: { name: string }; members: any[]; description: string; }
 interface Category { id: string; name: string; description?: string; projectCount?: number; }
 
 export default function ProjectsPage() {
@@ -36,12 +34,12 @@ export default function ProjectsPage() {
     const { data: projectsResponse, isLoading, isError } = useQuery({
         queryKey: ['projects', page, selectedCategoryId, debouncedSearchTerm],
         queryFn: () => getProjects({ page, limit: 6, categoryId: selectedCategoryId || undefined, name: debouncedSearchTerm }),
-        keepPreviousData: true,
+        placeholderData: (prev) => prev,
     });
     
     const projects = projectsResponse?.data || [];
-    const pagination = projectsResponse?.pagination;
-    const categories = categoriesResponse?.data || [];
+    const pagination = projectsResponse;
+    const categories = categoriesResponse || [];
 
     return (
         <div className="bg-slate-50 dark:bg-black transition-colors duration-300 min-h-screen md:px-16">

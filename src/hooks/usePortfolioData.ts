@@ -36,7 +36,7 @@ export function usePortfolioData() {
     linksQuery,
     
     // Simplified, direct access to data for simpler components like the Footer
-    about: aboutQuery.data?.data,
-    links: linksQuery.data?.data,
+    about: aboutQuery.data,
+    links: linksQuery.data,
   };
 }

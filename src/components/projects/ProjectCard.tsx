@@ -3,23 +3,8 @@ import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink, FiUser } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
-// --- Local Type Definitions ---
-interface Member { id: string; name: string; profileImage?: string | null; }
-interface ProjectMember { id: string; member: Member; }
-interface ProjectCategory { name: string; }
-interface Project {
-  id: string;
-  name: string;
-  projectImage: string | null;
-  startDate: string;
-  endDate?: string | null;
-  githubLink?: string | null;
-  liveLink?: string | null;
-  tags: string[];
-  category: ProjectCategory;
-  members: ProjectMember[];
-  description?: string; // Adding description for completeness
-}
+import { Project } from '../../services/projectService';
+
 interface ProjectCardProps {
   project: Project;
 }
